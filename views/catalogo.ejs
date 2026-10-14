@@ -6,6 +6,11 @@
     <title>Catálogo</title>
 </head>
 <body>
-    
+    <section class="catalogo">
+        <% prods.ForEach(prod => { %>
+            <h3> <%= prods.nombre %></h3>
+            <p> <%= prods.precio %></p>
+        <% }) %>
+    </section>
 </body>
 </html>

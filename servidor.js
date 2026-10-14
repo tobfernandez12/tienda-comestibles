@@ -1,7 +1,10 @@
+express = require('express')
+app = express()
 app.use (express.static("public"))
+app.set("view engine", "ejs" )
 
 app.get("/", (req,res) => {
-     req.render("index")
+     res.render("index")
 })
 
 app.get("/productos", (req,res) =>{
@@ -19,5 +22,8 @@ app.get("/productos", (req,res) =>{
             precio: 5400
         }
     ]
-     req.render("catalogo",{prods})
+     res.render("catalogo",{prods})
 })
+app.listen(3000, () =>  {
+    console.log("Server funcionando")}
+)
