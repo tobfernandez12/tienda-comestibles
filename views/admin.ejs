@@ -18,7 +18,27 @@
         <button>+ Nuevo productos</button>
 
         <div>
-            
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Stock</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <% prods.forEach( (producto) => { %>
+                    
+                      <tr>
+                        <td> <%= producto.nombre %> </td>
+                        <td> <%=producto.marca %></td>
+                        <td> <%=producto.stock %></td>
+                        <td><%=producto.precio %></td>
+                      </tr>
+                  <% }) %>
+                </tbody>
+            </table>
         </div>
     </section>
 
