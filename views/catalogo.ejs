@@ -6,6 +6,13 @@
     <title>Catálogo</title>
 </head>
 <body>
-    
+    <a href="/">Inicio</a>
+    <li class="product-card">
+        <% prods.forEach(prod => { %>
+                <h3> <%= prod.nombre %> </h3>
+                <p> <%= prod.marca %> </p>
+                <h2> $<%= prod.precio %></h2>
+        <% }) %>
+    </li>
 </body>
 </html>
