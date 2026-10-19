@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../public/css/catalogo.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
 </head>
 <body>
-    <section class="catalogo">
-        <% prods.ForEach(prod => { %>
-            <h3> <%= prods.nombre %></h3>
-            <p> <%= prods.precio %></p>
+    <a href="/">Inicio</a>
+    <li class="product-card">
+        <% prods.forEach(prod => { %>
+                <h3> <%= prod.nombre %> </h3>
+                <p> <%= prod.marca %> </p>
+                <h2> $<%= prod.precio %></h2>
         <% }) %>
-    </section>
+    </li>
 </body>
 </html>
