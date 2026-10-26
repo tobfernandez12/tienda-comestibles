@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <link rel="icon" type="image/png" href="../public/assets/EJS-MARKET-logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo</title>
+    <title>Catálogo de productos</title>
+    <link rel="stylesheet" href="/css/catalogo.css">
 </head>
 <body>
-    <a href="/">Inicio</a>
-    <li class="product-card">
-        <% prods.forEach(prod => { %>
-                <h3> <%= prod.nombre %> </h3>
-                <p> <%= prod.marca %> </p>
-                <h2> $<%= prod.precio %></h2>
+    <img class="logo" src="/assets/EJS-MARKET-logo.png" alt="Logo">
+    <a href="/">← Volver al inicio</a>
+    
+    <div>
+        <h1 class="catalogo-title">Catálogo de productos</h1>
+        <p class="parrafo">Encontrá los mejores precios en ejs</p>
+    </div>
+    <ul class="product-grid">
+        <% prods.forEach((prod, i) => { %>
+            <li class="product-card" style="--i: <%= i %>">
+                <h3><%= prod.nombre %></h3>
+                <p><%= prod.marca %></p>
+                <h2>$<%= prod.precio %></h2>
+                <img class="product-image" src="<%= prod.imagen %>" alt="<%= prod.nombre %>" loading="lazy">
+                <button>Comprar</button>
+            </li>
         <% }) %>
-    </li>
+    </ul>
 </body>
 </html>
