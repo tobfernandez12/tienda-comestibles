@@ -3,7 +3,7 @@ const catalogo = [
         id: 1,
         nombre: "galletitas",
         descripcion: "dulces",
-        imagen: "imagen",
+        imagen: "../assets/EJS-MARKET-logo.png",
         precio: 15000,
         stock: 10 
     },
@@ -30,5 +30,13 @@ const catalogo = [
         imagen: "imagen",
         precio: 2300,
         stock: 40
+    },
+    {
+        id: 5,
+        nombre: "Galletias",
+        descripcion: "Cañuelas",
+        imagen: "imagen",
+        precio: 2900,
+        stock: 20
     }
 ]
