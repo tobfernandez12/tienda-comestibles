@@ -3,12 +3,7 @@ app = express()
 app.use (express.static("public"))
 app.set("view engine", "ejs" )
 
-app.get("/", (req,res) => {
-     res.render("index")
-})
-
-app.get("/catalogo", (req,res) =>{
-    prods=[
+prods=[
         {
             nombre: "Galletas",
             marca: "Saladix",
@@ -34,6 +29,17 @@ app.get("/catalogo", (req,res) =>{
             precio: 1500
         }
     ]
+
+app.get("/", (req,res) => {
+     res.render("index")
+})
+
+app.get("/admin", (req,res) => {
+     res.render("admin", {prods})
+})
+
+app.get("/catalogo", (req,res) =>{
+    
     console.log(prods)
     console.log(prods[0].nombre)
      res.render("catalogo",{prods})
