@@ -1,11 +1,7 @@
 .logo{
-    width: 3px;
-    height: 2px;
-}
-.logo{
-    width: 380px;
-    height: 200px;
-    margin: auto;
+    width: 150px;
+    height: 150px;
+    margin: left;
     display: block;
 }
 html,body{
@@ -15,7 +11,7 @@ html,body{
 }
 body{
     min-height: 100vh;
-    background-color: rgb(231, 188, 135);
+    background-color: rgb(236, 232, 226);
 }
 .titulo{
     text-align: center;
@@ -24,15 +20,51 @@ body{
     -webkit-text-stroke: 2px rgb(116, 86, 48);
 }
 .barra{
-    background-color: rgb(141, 103, 53);
-    height: 30px;
+    background-color: rgb(34, 18, 92);
+    height: 190px;
     width: 100%;
     text-align: center;
+}
+.contenedor-mercado{
+    position: relative;
+}
+.contenedor-mercado h1{
+  position: absolute;
+  top: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+  left: 50%;
+  size: 300px;
+  transform: translate(-50%, -50%);
+  color: white; 
+  margin: 0;
+  text-align: center;
+}
+.contenedor-mercado h2{
+    position: absolute;
+    top: 20%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.iconify{
+    color: white;
+    width: 10px;
+    height: 10px;
+    font-size: 24px;
+}
+.supermercado{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 500px;
 }
 .barra-a{
     color: white;
     font-size: 20px;
-    margin-left: 40px;
+    margin-right: 40px;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     -webkit-text-stroke: 0.5px rgb(116, 86, 48)
