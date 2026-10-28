@@ -64,6 +64,7 @@
                         <th>Marca</th>
                         <th>Stock</th>
                         <th>Precio</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,6 +75,10 @@
                         <td> <%=producto.marca %></td>
                         <td> <%=producto.stock %></td>
                         <td><%=producto.precio %></td>
+                        <td>
+                            <button type="button">Editar</button>
+                            <button type="button">Eliminar</button>
+                        </td>
                       </tr>
                   <% }) %>
                 </tbody>
