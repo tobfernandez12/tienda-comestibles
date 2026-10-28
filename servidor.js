@@ -2,10 +2,11 @@ express = require('express')
 app = express()
 app.set("view engine", "ejs" )
 const path = require("path");
+database = require('db')
 
 app.use(express.static(path.join(__dirname, "public")));
 
-prods=[
+/* prods=[
         {
             nombre: "Galletas",
             marca: "Saladix",
@@ -34,7 +35,9 @@ prods=[
             imagen:"/assets/productos/leche.jpg",
             precio: 1500
         }
-    ]
+    ] */
+
+
 
 app.get("/", (req,res) => {
      res.render("index")
@@ -45,8 +48,7 @@ app.get("/admin", (req,res) => {
 })
 
 app.get("/catalogo", (req,res) =>{
-    
-    console.log(prods)
+    prods = database.obtenerProductos()
     console.log(prods[0].nombre)
      res.render("catalogo",{prods})
 })
