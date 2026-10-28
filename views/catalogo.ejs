@@ -8,21 +8,27 @@
     <link rel="stylesheet" href="/css/catalogo.css">
 </head>
 <body>
-    <img class="logo" src="/assets/EJS-MARKET-logo.png" alt="Logo">
-    <a href="/">← Volver al inicio</a>
-    
-    <div>
-        <h1 class="catalogo-title">Catálogo de productos</h1>
-        <p class="parrafo">Encontrá los mejores precios en ejs</p>
+    <div class="barra">
+        <img class="logo" src="/assets/EJS-MARKET-logo.png" alt="Logo">
+        <a class="barra-a" href="/">Inicio</a>
+        <a class="barra-a" href="">Ofertas Relámpago</a>
+        <a class="barra-a" href="">¿Quiénes somos?</a>
+        <a class="barra-a" href="">Contacto</a>
+        <a class="barra-a" href="/admin">Admin</a>
+    </div>   
+    <div class="catalogo-productos">
+        <h2 class="catalogo-title">Catálogo de productos</h2>
+        <input class="barra-busqueda" type="text" placeholder="Buscar productos...">
     </div>
     <ul class="product-grid">
         <% prods.forEach((prod, i) => { %>
             <li class="product-card" style="--i: <%= i %>">
-                <h3><%= prod.nombre %></h3>
-                <p><%= prod.marca %></p>
-                <h2>$<%= prod.precio %></h2>
                 <img class="product-image" src="<%= prod.imagen %>" alt="<%= prod.nombre %>" loading="lazy">
-                <button>Comprar</button>
+                <h2><%= prod.nombre %></h2>
+                <h4><%= prod.marca %></h4>
+                <h2>$<%= prod.precio %></h2>
+                <p class="stock">Stock: <%= prod.stock %></p>
+                <button>Ver Detalles</button>
             </li>
         <% }) %>
     </ul>

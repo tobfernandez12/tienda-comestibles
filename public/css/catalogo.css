@@ -1,7 +1,7 @@
 .logo{
-    width: 380px;
-    height: 200px;
-    margin: auto;
+    width: 150px;
+    height: 150px;
+    margin: left;
     display: block;
 }
 html,body{
@@ -11,7 +11,7 @@ html,body{
 }
 body{
     min-height: 100vh;
-    background-color: rgb(231, 188, 135);
+    background-color: rgb(255, 255, 255);
 }
 .parrafo{
     text-align: center;
@@ -19,38 +19,33 @@ body{
     font-size: 40px;
 }
 .catalogo-title{
-    text-align: center;
-    color: rgb(211, 209, 207);
+    text-align: left;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    color: black;
     font-size: 40px;
-    -webkit-text-stroke: 2px rgb(116, 86, 48);
 }
 /* Contenedor de productos */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-
     max-width: 1100px;
     margin: 30px auto;
     padding: 0;
-
     list-style: none;
 }
-
 /* Caja individual de cada producto */
 .product-card {
     display: flex;
     flex-direction: column;
-
     min-width: 0;
     padding: 20px;
-
     background: transparent;
     border: 1px solid #383d3d;
     border-radius: 14px;
-
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
     transition: transform 0.2s ease,
                 border-color 0.2s ease,
                 box-shadow 0.2s ease;
@@ -59,7 +54,7 @@ body{
 /* Efecto al pasar el cursor */
 .product-card:hover {
     transform: translateY(-4px);
-    border-color: #ee8c0b;
+    border-color: #2f00af;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -74,18 +69,41 @@ body{
 /* Marca */
 .product-card p {
     margin: 0 0 16px;
-    color: #0f0202;
+    color: white;
     font-size: 14px;
 }
-
+.product-card h4{
+    margin: 0 0 16px;
+    color: #383d3d;
+    font-size: 15px;
+}
 /* Precio */
 .product-card h2 {
     margin: auto 0 0;
     padding-top: 8px;
-    color: #4423bb;
+    color: black;
     font-size: 22px;
 }
+.stock {
+    background-color: green;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.barra{
+    background-color: rgb(34, 18, 92);
+    height: 190px;
+    width: 100%;
+    text-align: center;
+}
+.barra-a{
+    color: white;
+    font-size: 20px;
+    margin-right: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    -webkit-text-stroke: 0.5px rgb(116, 86, 48)
+}
 .product-image {
     width: 100%;
     height: 160px;
@@ -112,7 +130,6 @@ body{
         grid-template-columns: 1fr;
         gap: 12px;
     }
-
     .product-card {
         padding: 16px;
     }
