@@ -77,7 +77,10 @@
                         <td><%=producto.precio %></td>
                         <td>
                             <button type="button">Editar</button>
-                            <button type="button">Eliminar</button>
+                            <form action="/productos/<%= producto.id %>/eliminar" method="POST" 
+                                  onsubmit="return confirm('¿Querés eliminar este producto?')">
+                                <button type="submit">Eliminar</button>
+                            </form>
                         </td>
                       </tr>
                   <% }) %>

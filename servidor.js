@@ -109,6 +109,27 @@ app.post("/productos/agregar", subirImagen.single("imagen"), (req, res) => {
     });
 });
 
+app.post("/productos/:id/eliminar", (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) { return res.status(400).send("ID de producto inválido"); }
+
+    database.run(
+        "DELETE FROM productos WHERE id = ?",
+        [id],
+        function (err) {
+            if (err) {
+                console.error(err.message);
+                return res.status(500).send("Error al eliminar el producto");
+            }
+            if (this.changes === 0) {
+                return res.status(404).send("El producto no existe");
+            }
+            res.redirect("/admin");
+        }
+    );
+});
+
 app.get("/catalogo", (req, res) => {
     database.all("SELECT * FROM productos", [], (err, productos) => {
         if (err) {
