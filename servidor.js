@@ -130,6 +130,48 @@ app.post("/productos/:id/eliminar", (req, res) => {
     );
 });
 
+app.post("/productos/:id/editar", subirImagen.single("imagen"), (req, res) => {
+    const id = Number(req.params.id);
+
+    const nombre = (req.body.nombre || "").trim();
+    const marca = (req.body.marca || "").trim();
+    const stock = Number(req.body.stock);
+    const precio = Number(req.body.precio);
+
+    if (!Number.isInteger(id) || id <= 0) { return res.status(400).send("ID de producto inválido"); }
+
+    if (!nombre || !marca || !String(req.body.stock ?? "").trim() || !String(req.body.precio ?? "").trim() ||
+        !Number.isInteger(stock) || stock < 0 || !Number.isFinite(precio) || precio < 0
+    ) {
+        return res.status(400).send("Revisá los datos del producto");
+    }
+
+    database.get(
+        "SELECT imagen FROM productos WHERE id = ?", [id], (err, producto) => {
+            if (err) {
+                console.error(err.message);
+                return res.status(500).send("Error al consultar el producto");
+            }
+
+            if (!producto) { return res.status(404).send("El producto no existe");}
+
+            const imagen = req.file ? "/assets/productos/" + req.file.filename : producto.imagen;
+
+            const sql = `UPDATE productos SET nombre = ?, marca = ?, stock = ?, precio = ?, imagen = ? WHERE id = ?`;
+
+            database.run(sql, [nombre, marca, stock, precio, imagen, id], (err) => {
+                    if (err) {
+                        console.error(err.message);
+                        return res.status(500).send("Error al editar el producto");
+                    }
+
+                    res.redirect("/admin");
+                }
+            );
+        }
+    );
+});
+
 app.get("/catalogo", (req, res) => {
     database.all("SELECT * FROM productos", [], (err, productos) => {
         if (err) {

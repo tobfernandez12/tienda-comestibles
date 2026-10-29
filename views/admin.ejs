@@ -76,7 +76,57 @@
                         <td> <%=producto.stock %></td>
                         <td><%=producto.precio %></td>
                         <td>
-                            <button type="button">Editar</button>
+                            <button type="button" class="editar-producto" 
+                                data-id="<%= producto.id %>"
+                                data-nombre="<%= producto.nombre %>"
+                                data-marca="<%= producto.marca %>"
+                                data-precio="<%= producto.precio %>"
+                                data-stock="<%= producto.stock %>"
+                                data-imagen="<%= producto.imagen || '' %>">
+                                Editar
+                            </button>
+
+                            <dialog id="modal-editar">
+                                <form id="form-editar" method="POST" enctype="multipart/form-data">
+                                    <h2>Editar producto</h2>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+                                        <div>
+                                            <img id="editar-vista-imagen" alt="Imagen del producto" width="180" height="180" style="object-fit: contain;" hidden>
+                                            <p id="editar-sin-imagen">Sin imagen</p>
+
+                                            <div>
+                                                <button type="button" id="cambiar-imagen">Cambiar imagen</button>
+                                                <input id="editar-imagen" name="imagen" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                <label for="editar-nombre">Nombre *</label><br>
+                                                <input id="editar-nombre" name="nombre" type="text" required>
+                                            </p>
+                                            <p>
+                                                <label for="editar-marca">Marca *</label><br>
+                                                <input id="editar-marca" name="marca" type="text" required>
+                                            </p>
+                                            <p>
+                                                <label for="editar-precio">Precio *</label>
+                                                <br>
+                                                <input id="editar-precio" name="precio" type="number" min="0" step="0.01" required>
+                                            </p>
+                                            <p>
+                                                <label for="editar-stock">Stock *</label>
+                                                <br>
+                                                <input id="editar-stock" name="stock" type="number" min="0" step="1" required>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit">Guardar cambios</button>
+                                        <button type="button" id="cancelar-edicion">Cancelar</button>
+                                    </div>
+                                </form>
+                            </dialog>
+
                             <form action="/productos/<%= producto.id %>/eliminar" method="POST" 
                                   onsubmit="return confirm('¿Querés eliminar este producto?')">
                                 <button type="submit">Eliminar</button>
