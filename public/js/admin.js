@@ -105,9 +105,6 @@ function filtrarProductos() {
 
     coincidencias.forEach((fila) => {fila.hidden = false;});
 
-    resultadoBusqueda.textContent = coincidencias.length === 0 ? "No se encontraron productos." : `Mostrando ${coincidencias.length} de ${filasProductos.length} productos.`;
-}
-
-buscadorProductos.addEventListener("input", filtrarProductos);
+buscadorProductos.addEventListener("input", filtrarProductos);}
 
 filtrarProductos();

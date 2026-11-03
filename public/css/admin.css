@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7fb;
+    color: #172f4f;
+}
+
+header {
+    background-color: #123451;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 25px;
+    margin-right: auto;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 5px;
+    transition: 0.3s;
+}
+
+header a:hover {
+    color: #48b9e9;
+    border-bottom: 3px solid #48b9e9;
+}
+
+section {
+    max-width: 1100px;
+    min-height: 600px;
+    margin: 35px auto;
+    padding: 35px 30px;
+    background-color: white;
+    border: 2px solid #b8d2e8;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+section h1 {
+    display: inline-block;
+    font-size: 28px;
+    margin-bottom: 35px;
+    color: #142f50;
+}
+
+#abrir-modal {
+    float: right;
+    background-color: #0caf60;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#abrir-modal:hover {
+    background-color: #078b4b;
+    transform: translateY(-2px);
+}
+
+section > div {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d7e5f2;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+thead {
+    background-color: #edf4fb;
+}
+
+th {
+    color: #193655;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+    padding: 22px 18px;
+    border: 1px solid #dce8f2;
+}
+
+td {
+    padding: 22px 18px;
+    border: 1px solid #dce8f2;
+    font-size: 16px;
+    color: #263e59;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f5f9fd;
+}
+
+.editar-producto {
+    background-color: #0878ed;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: 0.3s;
+}
+
+.editar-producto:hover {
+    background-color: #075fc0;
+}
+
+td form {
+    display: inline-block;
+}
+
+td form button {
+    background-color: #ed3542;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+td form button:hover {
+    background-color: #c82333;
+}
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+dialog h2 {
+    color: #173653;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+dialog label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #263e59;
+    font-weight: bold;
+}
+
+dialog input:not([type="file"]) {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd8e5;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+dialog input:focus {
+    border-color: #0878ed;
+    box-shadow: 0 0 4px rgba(8, 120, 237, 0.3);
+}
+
+dialog p {
+    margin-bottom: 15px;
+}
+
+dialog button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0878ed;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+dialog button:hover {
+    opacity: 0.85;
+}
+
+dialog button[type="button"] {
+    background-color: #6c757d;
+}
+
+#editar-vista-imagen {
+    border-radius: 8px;
+    border: 1px solid #dce8f2;
+    padding: 5px;
+    background-color: #f8fafc;
+}
+
+
+#buscar-productos {
+    width: 320px;
+    max-width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#buscar-productos:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.2);
+}
+
+#buscar-productos::placeholder {
+    color: #999;
+}
+
+label[for="buscar-productos"] {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+#buscar-productos {
+    margin-top: 5px;
+}
+
+#resultado-busqueda {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        flex-wrap: wrap;
+        padding: 18px;
+        gap: 15px;
+    }
+
+    header h1 {
+        width: 100%;
+        font-size: 22px;
+    }
+
+    section {
+        margin: 15px;
+        padding: 20px 15px;
+    }
+
+    section h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    #abrir-modal {
+        float: none;
+        display: block;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+    th, td {
+        padding: 14px 12px;
+        font-size: 14px;
+    }
+
+    dialog {
+        padding: 20px;
+    }
+}

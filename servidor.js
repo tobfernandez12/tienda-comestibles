@@ -194,6 +194,62 @@ app.get("/catalogo", (req, res) => {
     });
 });
 
+app.get("/productos/buscar/sugerencias", (req, res) => {
+    const buscar = (req.query.buscar || "").trim();
+
+    if (buscar.length < 2) {
+        return res.json([]);
+    }
+
+    const sql = `
+        SELECT id, nombre, marca, precio, imagen
+        FROM productos
+        WHERE LOWER(nombre) LIKE LOWER(?)
+           OR LOWER(marca) LIKE LOWER(?)
+        ORDER BY nombre ASC
+        LIMIT 8
+    `;
+
+    database.all(
+        sql,
+        [`%${buscar}%`, `%${buscar}%`],
+        (err, productos) => {
+            if (err) {
+                console.error(err.message);
+                return res.status(500).json({
+                    error: "Error al buscar productos"
+                });
+            }
+
+            res.json(productos);
+        }
+    );
+});
+
+app.get("/productos/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+        return res.status(400).send("ID de producto inválido");
+    }
+
+    database.get(
+        "SELECT * FROM productos WHERE id = ?",
+        [id],
+        (err, producto) => {
+            if (err) {
+                console.error(err.message);
+                return res.status(500).send("Error al consultar el producto");
+            }
+
+            if (!producto) {
+                return res.status(404).send("El producto no existe");
+            }
+
+            res.render("detalle", { producto });
+        }
+    );
+});
 
 app.listen(3000, () =>  {
     console.log("Server funcionando")}
