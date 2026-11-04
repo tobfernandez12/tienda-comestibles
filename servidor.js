@@ -8,36 +8,6 @@ const { randomUUID } = require("crypto");
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-/* prods=[
-        {
-            nombre: "Galletas",
-            marca: "Saladix",
-            stock: 50,
-            imagen: "/assets/productos/pepito.jpg",
-            precio: 2500
-        },
-        {
-            nombre: "Gaseosa",
-            marca: "Coca-Cola",
-            stock: 200,
-            imagen: "/assets/productos/coca-cola.png",
-            precio: 4900
-        },
-        {
-            nombre: "Aceite de girasol",
-            marca: "Cañuelas",
-            stock: 20,
-            imagen:"/assets/productos/aceite.jpg",
-            precio: 3200
-        },
-        {
-            nombre: "Leche",
-            marca: "La Serenísima",
-            stock: 20,
-            imagen:"/assets/productos/leche.jpg",
-            precio: 1500
-        }
-    ] */
 const extensiones = {
     "image/jpeg": ".jpg",
     "image/png": ".png",
@@ -251,6 +221,8 @@ app.get("/productos/:id", (req, res) => {
     );
 });
 
-app.listen(3000, () =>  {
-    console.log("Server funcionando")}
-)
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Servidor funcionando en puerto ${PORT}`);
+});
