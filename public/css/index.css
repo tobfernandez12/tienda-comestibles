@@ -101,3 +101,25 @@ body{
     text-decoration: none;
     -webkit-text-stroke: 0.5px rgb(116, 86, 48)
 }
+.icono {
+    font-family: "bootstrap-icons";
+    font-style: normal;
+    font-size: 80px;
+    text-align: center;
+}
+.iconos {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+    color: rgb(11, 18, 80);
+}
+.text-icon{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(11, 18, 80);
+}
+.text-icon-p{
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}

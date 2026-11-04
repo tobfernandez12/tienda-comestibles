@@ -7,119 +7,44 @@
     <link rel="stylesheet" href="/css/detalle.css">
 </head>
 <body>
-
     <header class="barra">
         <img class="logo" src="/assets/EJS-MARKET-logo.png" alt="Logo">
-
-        <nav>
-            <a href="/">Inicio</a>
-            <a href="/catalogo">Productos</a>
-            <a href="/admin">Administración</a>
-        </nav>
+        <a class="barra-a" href="/">Inicio</a>
+        <a class="barra-a" href="/admin">Admin</a>
     </header>
 
     <main class="contenedor-detalle">
 
-        <a href="/catalogo" class="volver">← Volver al catálogo</a>
+        <a href="/catalogo" class="volver"> Volver al catálogo</a>
 
         <section class="detalle-producto">
 
             <div class="zona-imagen">
-                <img
-                    src="<%= producto.imagen || '/assets/EJS-MARKET-logo.png' %>"
-                    alt="<%= producto.nombre %>"
-                    class="imagen-producto"
-                >
+                <img src="<%= producto.imagen || '/assets/EJS-MARKET-logo.png' %>" alt="<%= producto.nombre %>" class="imagen-producto">
             </div>
-
             <div class="informacion-producto">
-
                 <h1><%= producto.nombre %></h1>
-
                 <p class="marca">
                     Marca: <%= producto.marca %>
                 </p>
-
                 <p class="precio">
                     $ <%= Number(producto.precio).toLocaleString("es-AR") %>
                 </p>
-
                 <p class="stock">
                     Stock disponible: <%= producto.stock %>
                 </p>
-
                 <div class="cantidad">
                     <button type="button" id="restar">−</button>
-
-                    <input
-                        type="number"
-                        id="cantidad"
-                        value="<%= producto.stock > 0 ? 1 : 0 %>"
-                        min="1"
-                        max="<%= producto.stock %>"
-                    >
-
+                    <input type="number" id="cantidad" value="<%= producto.stock > 0 ? 1 : 0 %>" min="1" max="<%= producto.stock %>">
                     <button type="button" id="sumar">+</button>
                 </div>
-
                 <button type="button" class="agregar" id="agregar">
                     Agregar al carrito
                 </button>
-
                 <p id="mensaje"></p>
-
             </div>
         </section>
     </main>
-
-    <script>
-        const stock = Number("<%= producto.stock %>");
-
-        const cantidad = document.getElementById("cantidad");
-        const restar = document.getElementById("restar");
-        const sumar = document.getElementById("sumar");
-        const mensaje = document.getElementById("mensaje");
-        const agregar = document.getElementById("agregar");
-
-        restar.addEventListener("click", () => {
-            let valor = Number(cantidad.value);
-
-            if (valor > 1) {
-                cantidad.value = valor - 1;
-            }
-        });
-
-        sumar.addEventListener("click", () => {
-            let valor = Number(cantidad.value);
-
-            if (valor < stock) {
-                cantidad.value = valor + 1;
-            }
-        });
-
-        cantidad.addEventListener("change", () => {
-            let valor = Number(cantidad.value);
-
-            if (!Number.isInteger(valor) || valor < 1) {
-                cantidad.value = stock > 0 ? 1 : 0;
-            } else if (valor > stock) {
-                cantidad.value = stock;
-            }
-        });
-
-        agregar.addEventListener("click", () => {
-            mensaje.textContent = "Todavía falta conectar el carrito.";
-        });
-
-        if (stock <= 0) {
-            cantidad.value = 0;
-            cantidad.disabled = true;
-            restar.disabled = true;
-            sumar.disabled = true;
-            agregar.disabled = true;
-            mensaje.textContent = "Producto sin stock.";
-        }
-    </script>
-
+    <script src="/js/detalle.js"></script>
 </body>
 </html>

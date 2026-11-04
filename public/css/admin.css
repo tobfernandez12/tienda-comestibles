@@ -11,7 +11,6 @@ body {
 }
 
 header {
-    background-color: #123451;
     color: white;
     padding: 20px 30px;
     display: flex;
@@ -38,6 +37,26 @@ header a:hover {
     border-bottom: 3px solid #48b9e9;
 }
 
+.logo{
+    width: 150px;
+    height: 150px;
+    margin: left;
+    display: block;
+}
+.barra{
+    background-color: rgb(34, 18, 92);
+    height: 190px;
+    width: 100%;
+    text-align: center;
+}
+.barra-a{
+    color: white;
+    font-size: 20px;
+    margin-right: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    -webkit-text-stroke: 0.5px rgb(116, 86, 48)
+}
 section {
     max-width: 1100px;
     min-height: 600px;
